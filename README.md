@@ -20,6 +20,10 @@ See the [test_inputs](./test_inputs) directory for example test requests.
 
 Streaming for openai requests are fully working.
 
+## Preload model into the docker image
+
+See the [embed_model](./embed_model/) directory for instructions.
+
 ## Licence
 
 This project is licensed under the Creative Commons Attribution 4.0 International License. You are free to use, share, and adapt the material for any purpose, even commercially, under the following terms:
