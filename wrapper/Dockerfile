@@ -23,6 +23,7 @@ RUN apt-get update --yes --quiet && DEBIAN_FRONTEND=noninteractive apt-get insta
     python3.11-tk \
     curl \
     pip && \
+    ln -s /usr/bin/python3 /usr/bin/python && \
     pip install --upgrade pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
