@@ -2,7 +2,7 @@
 
 ## How to use
 
-Start a runpod serverless with the docker container ``svenbrnn/runpod-ollama:0.5.7``. Set ``MODEL_NAME`` environment to a model from ollama.com to automatically download a model.
+Start a runpod serverless with the docker container ``svenbrnn/runpod-ollama:latest``. Set ``MODEL_NAME`` environment to a model from ollama.com to automatically download a model.
 A mounted volume will be automatically used.
 
 ## Environment variables

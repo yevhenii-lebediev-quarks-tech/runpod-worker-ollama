@@ -3,7 +3,7 @@ ARG OLLAMA_VERSION=0.5.7
 # Use an official base${OLLAMA_VERSION} image with your desired version
 FROM ollama/ollama:${OLLAMA_VERSION}
 
-ENV PYTHONUNBUFFERED=1 
+ENV PYTHONUNBUFFERED=1
 
 # Set up the working directory
 WORKDIR /
@@ -23,8 +23,6 @@ RUN apt-get update --yes --quiet && DEBIAN_FRONTEND=noninteractive apt-get insta
     python3.11-tk \
     curl \
     pip && \
-    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 999 && \
-    update-alternatives --config python3 && ln -s /usr/bin/python3 /usr/bin/python && \
     pip install --upgrade pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
