@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - uses: docker/build-push-action@v6
         with:
-          context: ./.runpod
+          context: ./
           build-args: OLLAMA_VERSION=${{ inputs.ollama_version }}
           push: true
           tags: svenbrnn/runpod-ollama:${{ inputs.ollama_version }}${{ inputs.next_version_suffix }},svenbrnn/runpod-ollama:latest

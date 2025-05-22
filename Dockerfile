@@ -32,7 +32,7 @@ RUN apt-get update --yes --quiet && DEBIAN_FRONTEND=noninteractive apt-get insta
 WORKDIR /work
 
 # Add my src as /work
-ADD engine.py handler.py requirements.txt start.sh test_input.json utils.py /work
+ADD engine.py handler.py requirements.txt start.sh test_input.json utils.py utils.py /work
 
 # Set defaut ollama models directory to /runpod-volume where runpod will mount the volume by default
 ENV OLLAMA_MODELS="/runpod-volume"
