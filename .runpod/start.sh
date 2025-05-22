@@ -37,4 +37,4 @@ else
     ollama pull $MODEL_NAME
 fi
 
-python -u runpod_wrapper.py $1
+python -u handler.py $1
