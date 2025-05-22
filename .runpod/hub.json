@@ -1,0 +1,18 @@
+{
+  "title": "Runpod Worker Ollama",
+  "description": "A serverless Ollama Worker for Runpod",
+  "type": "serverless",
+  "category": "language",
+  "iconUrl": "https://ollama.com/public/ollama.png",
+  "config": {
+    "runsOn": "GPU",
+    "containerDiskInGb": 20,
+    "presets": [],
+    "env": [
+      {
+        "key": "MODEL_NAME",
+        "value": "phi3"
+      }
+    ]
+  }
+}
