@@ -6,12 +6,20 @@
   "iconUrl": "https://ollama.com/public/ollama.png",
   "config": {
     "runsOn": "GPU",
+    "gpuCount": 1,
+    "gpuIds": "AMPERE_16,AMPERE_24,ADA_24",
     "containerDiskInGb": 20,
     "presets": [],
     "env": [
       {
         "key": "MODEL_NAME",
-        "value": "phi3"
+          "input": {
+            "name": "Model Name",
+            "type": "string",
+            "description": "Name of a model to preload",
+            "default": "phi3",
+            "advanced": false
+          }
       }
     ]
   }
