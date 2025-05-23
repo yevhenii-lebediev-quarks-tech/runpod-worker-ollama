@@ -18,11 +18,12 @@ jobs:
       next_version_suffix: ${{ steps.new_release_check.outputs.next_version_suffix }}
 
     steps:
-      - name: 🆕 Get the latest ollama release
+      - name: 👀 Get the latest ollama-serverless stable release
         id: custom_image_release
-        uses: dvershinin/lastversion-action@main
+        uses: pozetroninc/github-action-get-latest-release@v0.8.0
         with:
-          repository: 'SvenBrnn/runpod-worker-ollama'
+          repository: SvenBrnn/runpod-worker-ollama
+          excludes: prerelease,draft
 
       - name: 🆕 Get the latest ollama release
         id: ollama_release
@@ -33,10 +34,10 @@ jobs:
       - name: 🤲 Check if it is a newer ollama release
         id: new_release_check
         run: |
-          echo "👀 Latest Codely custom image release: ${{ steps.custom_image_release.outputs.last_version }}"
+          echo "👀 Latest Codely custom image release: ${{ steps.custom_image_release.outputs.release }}"
           echo "🆕 Latest ollama release: ${{ steps.ollama_release.outputs.last_version }}"
 
-          custom_version_orig=$(echo "${{ steps.custom_image_release.outputs.last_version }}" | sed 's/ollama@//g')
+          custom_version_orig=$(echo "${{ steps.custom_image_release.outputs.release }}" | sed 's/ollama@//g')
           custom_version=$(echo "$custom_version_orig" | sed 's/-[0-9]*//g')  # Remove the suffix
           ollama_version=$(echo "${{ steps.ollama_release.outputs.last_version }}" | sed 's/ollama@//g')
 
