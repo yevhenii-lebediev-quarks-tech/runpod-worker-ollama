@@ -1,5 +1,36 @@
 {
-  "input": {
-    "prompt": "How are you?"
-  }
+    "input": {
+        "prompt": "How are you? \nresponse json no indent",
+        "stream": true,
+        "format": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$id": "https://github.com/quarks-tech/text-assist-service/internal/resolving/v2-starter",
+            "$ref": "#/$defs/V2Starter",
+            "$defs": {
+                "V2Starter": {
+                    "properties": {
+                        "conversation_starter": {
+                            "type": "string",
+                            "title": "Conversation starter"
+                        },
+                        "used_info": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "minItems": 1,
+                            "uniqueItems": true,
+                            "title": "Used Receiver's Info"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "type": "object",
+                    "required": [
+                        "conversation_starter",
+                        "used_info"
+                    ]
+                }
+            }
+        }
+    }
 }
