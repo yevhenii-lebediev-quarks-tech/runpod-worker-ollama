@@ -1,7 +1,7 @@
 {
     "input": {
         "prompt": "How are you? \nresponse json no indent",
-        "stream": true,
+        "stream": false,
         "format": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "$id": "https://github.com/quarks-tech/text-assist-service/internal/resolving/v2-starter",
