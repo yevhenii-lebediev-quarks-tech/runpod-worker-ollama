@@ -14,7 +14,7 @@
     "env": [
       {
         "key": "MODEL_NAME",
-        "value": "phi3"
+        "value": "gemma3:1b"
       }
     ],
     "allowedCudaVersions": [
