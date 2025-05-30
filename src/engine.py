@@ -26,6 +26,7 @@ class OllamaEngine:
                 system=job_input.system,
                 stream=job_input.stream,
                 format=job_input.format,
+                options=job_input.options,
             )
         else:
             # Buid new JobInput object with the OpenAI route and input
@@ -34,6 +35,7 @@ class OllamaEngine:
                 messages=job_input.messages,
                 stream=job_input.stream,
                 format=job_input.format,
+                options=job_input.options,
             )
 
         print("Generating response for job_input:", job_input)

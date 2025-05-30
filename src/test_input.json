@@ -2,6 +2,10 @@
     "input": {
         "prompt": "How are you? \nresponse json no indent",
         "stream": false,
+        "options": {
+            "temperature": 0.8,
+            "num_ctx": 128
+        },
         "format": {
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "$id": "https://github.com/quarks-tech/text-assist-service/internal/resolving/v2-starter",
