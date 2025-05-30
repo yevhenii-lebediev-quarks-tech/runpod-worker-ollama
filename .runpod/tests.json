@@ -1,24 +1,142 @@
 {
-  "tests": [
-    {
-      "name": "execute_a_prompt",
-      "input": {
-        "prompt": "Say: Hallo World!"
-      },
-      "timeout": 120000
-    }
-  ],
-  "config": {
-    "gpuTypeId": "NVIDIA GeForce RTX 4090",
-    "gpuCount": 1,
-    "env": [
-      {
-        "key": "MODEL_NAME",
-        "value": "gemma3:1b"
-      }
+    "tests": [
+        {
+            "name": "generate_non_stream",
+            "input": {
+                "prompt": "Say: Hallo World!"
+            },
+            "timeout": 120000
+        },
+        {
+            "name": "generate_stream",
+            "input": {
+                "prompt": "Say: Hallo World!"
+            },
+            "timeout": 120000
+        },
+        {
+            "name": "chat_non_stream",
+            "input": {
+                "messages": [
+                    {
+                        "content": "Say: Hallo World!",
+                        "role": "user"
+                    }
+                ]
+            },
+            "timeout": 120000
+        },
+        {
+            "name": "chat_stream",
+            "input": {
+                "messages": [
+                    {
+                        "content": "Say: Hallo World!",
+                        "role": "user"
+                    }
+                ]
+            },
+            "timeout": 120000
+        },
+        {
+            "name": "generate_json",
+            "input": {
+                "prompt": "How are you? \nresponse json no indent",
+                "stream": false,
+                "format": {
+                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                    "$id": "https://github.com/quarks-tech/text-assist-service/internal/resolving/v2-starter",
+                    "$ref": "#/$defs/V2Starter",
+                    "$defs": {
+                        "V2Starter": {
+                            "properties": {
+                                "conversation_starter": {
+                                    "type": "string",
+                                    "title": "Conversation starter"
+                                },
+                                "used_info": {
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "uniqueItems": true,
+                                    "title": "Used Receiver's Info"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": [
+                                "conversation_starter",
+                                "used_info"
+                            ]
+                        }
+                    }
+                },
+                "options": {
+                    "temperature": 0.8
+                }
+            },
+            "timeout": 120000
+        },
+        {
+            "name": "chat_json",
+            "input": {
+                "messages": [
+                    {
+                        "content": "How are you? \nresponse json no indent",
+                        "role": "user"
+                    }
+                ],
+                "stream": false,
+                "format": {
+                    "$schema": "https://json-schema.org/draft/2020-12/schema",
+                    "$id": "https://github.com/quarks-tech/text-assist-service/internal/resolving/v2-starter",
+                    "$ref": "#/$defs/V2Starter",
+                    "$defs": {
+                        "V2Starter": {
+                            "properties": {
+                                "conversation_starter": {
+                                    "type": "string",
+                                    "title": "Conversation starter"
+                                },
+                                "used_info": {
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "uniqueItems": true,
+                                    "title": "Used Receiver's Info"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "type": "object",
+                            "required": [
+                                "conversation_starter",
+                                "used_info"
+                            ]
+                        }
+                    }
+                },
+                "options": {
+                    "temperature": 0.8
+                }
+            },
+            "timeout": 120000
+        }
     ],
-    "allowedCudaVersions": [
-      "12.8"
-    ]
-  }
+    "config": {
+        "gpuTypeId": "NVIDIA GeForce RTX 4090",
+        "gpuCount": 1,
+        "env": [
+            {
+                "key": "MODEL_NAME",
+                "value": "gemma3:1b"
+            }
+        ],
+        "allowedCudaVersions": [
+            "12.8"
+        ]
+    }
 }

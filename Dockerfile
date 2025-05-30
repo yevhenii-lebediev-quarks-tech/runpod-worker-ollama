@@ -25,6 +25,7 @@ RUN apt-get update --yes --quiet && DEBIAN_FRONTEND=noninteractive apt-get insta
     pip && \
     ln -s /usr/bin/python3 /usr/bin/python && \
     pip install --upgrade pip && \
+    pip install uv && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -38,7 +39,7 @@ ADD ./src /work
 ENV OLLAMA_MODELS="/runpod-volume"
 
 # Install runpod and its dependencies
-RUN pip install -r requirements.txt && \
+RUN uv sync --frozen && \
     chmod +x start.sh
 
 # Set the entrypoint

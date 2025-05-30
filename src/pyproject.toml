@@ -1,0 +1,11 @@
+[project]
+name = "runpod-worker-ollama"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11.11"
+dependencies = [
+    "dotenv>=0.9.9",
+    "ollama>=0.5.0",
+    "runpod>=1.7.10",
+]

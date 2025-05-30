@@ -37,4 +37,6 @@ else
     ollama pull $MODEL_NAME
 fi
 
+source .venv/bin/activate
+
 python -u handler.py $1

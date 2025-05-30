@@ -1,4 +1,3 @@
-import json
 import os
 
 from dotenv import load_dotenv
@@ -8,7 +7,6 @@ from utils import JobInput
 client = Client(
     host='http://localhost:11434',
 )
-
 
 class OllamaEngine:
     def __init__(self):
@@ -20,7 +18,7 @@ class OllamaEngine:
         # Get model from MODEL_NAME defauting to llama3.2:1b
         model = os.getenv("MODEL_NAME", "gemma3:1b")
 
-        # Depending if prompt is a string or a list, we need to handle it differently and send it to the OpenAI API
+        # If prompt is set than it's a generation request, otherwise - chat.
         if job_input.prompt:
             response = client.generate(
                 model=model,

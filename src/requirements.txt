@@ -1,4 +1,0 @@
-runpod
-python-dotenv
-ollama
-orjson==3.10.14

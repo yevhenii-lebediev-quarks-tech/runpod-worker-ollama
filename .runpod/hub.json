@@ -20,6 +20,38 @@
             "default": "gemma3:27b",
             "advanced": false
           }
+      },
+      {
+        "key": "OLLAMA_KEEP_ALIVE",
+        "input": {
+          "name": "Ollama keep alive",
+          "type": "number",
+          "description": "How long the model will stay in the memory idle",
+          "default": -1,
+          "advanced": true
+        }
+      },
+      {
+        "key": "OLLAMA_FLASH_ATTENTION",
+        "input": {
+          "name": "Ollama flash attention",
+          "type": "boolean",
+          "description": "Enable Flash Attention for faster inference on supported GPUs",
+          "default": true,
+          "trueValue": "true",
+          "falseValue": "false",
+          "advanced": true
+        }
+      },
+      {
+        "key": "OLLAMA_NUM_PARALLEL",
+        "input": {
+          "name": "Ollama num parallel",
+          "type": "number",
+          "description": "How many requests can Ollama handle at time",
+          "default": 1,
+          "advanced": true
+        }
       }
     ]
   }
