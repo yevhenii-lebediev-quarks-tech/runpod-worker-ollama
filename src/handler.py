@@ -15,7 +15,7 @@ async def handler(job: any):
     return await engine.generate(job_input)  # Call generate with job_input
 
 def adjust_concurrency(current_concurrency):
-    return os.getenv("OLLAMA_NUM_PARALLEL", 1)
+    return int(os.getenv("OLLAMA_NUM_PARALLEL", 1))
 
 runpod.serverless.start(
     {
