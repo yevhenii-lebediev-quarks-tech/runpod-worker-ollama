@@ -133,6 +133,10 @@
             {
                 "key": "MODEL_NAME",
                 "value": "gemma3:1b"
+            },
+            {
+                "key": "OLLAMA_NUM_PARALLEL",
+                "value": 2
             }
         ],
         "allowedCudaVersions": [
