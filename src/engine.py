@@ -1,10 +1,10 @@
 import os
 
 from dotenv import load_dotenv
-from ollama import Client
+from ollama import AsyncClient
 from utils import JobInput
 
-client = Client(
+client = AsyncClient(
     host='http://localhost:11434',
 )
 
@@ -14,13 +14,13 @@ class OllamaEngine:
 
         print("OllamaEngine initialized")
 
-    def generate(self, job_input: JobInput):
+    async def generate(self, job_input: JobInput):
         # Get model from MODEL_NAME defauting to llama3.2:1b
         model = os.getenv("MODEL_NAME", "gemma3:1b")
 
         # If prompt is set than it's a generation request, otherwise - chat.
         if job_input.prompt:
-            response = client.generate(
+            response = await client.generate(
                 model=model,
                 prompt=job_input.prompt,
                 system=job_input.system,
@@ -30,7 +30,7 @@ class OllamaEngine:
             )
         else:
             # Buid new JobInput object with the OpenAI route and input
-            response = client.chat(
+            response = await client.chat(
                 model=model,
                 messages=job_input.messages,
                 stream=job_input.stream,

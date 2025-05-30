@@ -39,4 +39,4 @@ fi
 
 source .venv/bin/activate
 
-python -u handler.py $1
+python -u main.py $1
