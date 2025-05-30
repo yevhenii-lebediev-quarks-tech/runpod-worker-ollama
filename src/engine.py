@@ -46,7 +46,7 @@ class OllamaEngine:
         content = ""
         last_message = None
 
-        for chunk in response:
+        async for chunk in response:
             last_message = chunk
 
             if job_input.prompt:
